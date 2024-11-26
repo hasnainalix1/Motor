@@ -20,3 +20,43 @@ btnpopup.addEventListener('click', () => {
 iconClose.addEventListener('click', () => {
   wrapper.classList.remove('active-popup');
 });
+function signup() {
+  const username = document.getElementById("signup-username").value;
+  const password = document.getElementById("signup-password").value;
+
+  if (localStorage.getItem(username)) {
+      alert("Username already exists!");
+      return;
+  }
+
+
+  const user = {
+      username: username,
+      password: password
+  };
+
+
+  localStorage.setItem(username, JSON.stringify(user));
+
+  alert("Signup successful!");
+  document.getElementById("signup-form").reset();
+}
+
+function login() {
+  const username = document.getElementById("login-username").value;
+  const password = document.getElementById("login-password").value;
+
+  const storedUser = JSON.parse(localStorage.getItem(username));
+
+  if (!storedUser) {
+      alert("User not found!");
+      return;
+  }
+
+  if (storedUser.password === password) {
+      alert("Login successful!");
+      document.getElementById("login-form").reset();
+  } else {
+      alert("Incorrect password!");
+  }
+}
