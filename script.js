@@ -20,50 +20,57 @@ btnpopup.addEventListener('click', () => {
 iconClose.addEventListener('click', () => {
   wrapper.classList.remove('active-popup');
 });
-function signup() {
-  const username = document.getElementById("signup-username").value;
-  const password = document.getElementById("signup-password").value;
 
-  if (localStorage.getItem(username)) {
-      alert("Username already exists!");
-      return;
-  }
+// signup 
+   document.getElementById("signupForm").addEventListener("submit", function(e) {
+      e.preventDefault(); 
 
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      const email = document.getElementById("email").value;
+      const termsAccepted = document.getElementById("terms").checked;
 
-  const user = {
-      username: username,
-      password: password
-  };
+      if (!termsAccepted) {
+        alert("You must accept the Terms and Conditions to sign up.");
+        return;
+      }
 
+      if (!email.endsWith('@gmail.com')) {
+        alert("Please use a Gmail address.");
+        return;
+      }
 
-  localStorage.setItem(username, JSON.stringify(user));
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+      if (users.some(user => user.username === username)) {
+        alert("Username already taken!");
+        return;
+      }
 
-  alert("Signup successful!");
-  document.getElementById("signup-form").reset();
-}
+      const newUser = { username, password, email };
 
-function login() {
-  const username = document.getElementById("login-username").value;
-  const password = document.getElementById("login-password").value;
+      users.push(newUser);
+      localStorage.setItem("users", JSON.stringify(users));
 
-  const storedUser = JSON.parse(localStorage.getItem(username));
+      alert("User signed up successfully!");
+      window.location.href = "login.html"; 
+    });
 
-  if (!storedUser) {
-      alert("User not found!");
-      return;
-  }
+// login
+  document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
 
-  if (storedUser.password === password) {
-      alert("Login successful!");
-      document.getElementById("login-form").reset();
-  } else {
-      alert("Incorrect password!");
-  }
-}
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
 
-         const toggleBtn = document.getElementById("toggle-btn");
-        const nav = document.querySelector(".navigation");
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+      const user = users.find(user => user.username === username);
 
-        toggleBtn.addEventListener("click", () => {
-            nav.classList.toggle("active");
-        });
+      if (!user) {
+        alert("User not found!");
+      } else if (user.password !== password) {
+        alert("Incorrect password!");
+      } else {
+        alert("Login successful!");
+        window.location.href = "welcome.html"; 
+      }
+    });
