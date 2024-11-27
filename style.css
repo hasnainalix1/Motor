@@ -1,13 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
 
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Sour Gummy", sans-serif;
+    font-family: "Sour Gummy" ,  sans-serif;
 }
-
-body {
+body{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,47 +16,37 @@ body {
     background-size: cover;
     background-position: center;
 }
-
-header {
+header{
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    padding: 20px 30px;
+    width: 1230px;
+    margin: 20px;
+    border-radius: 10px;
+    padding: 20px 100px;
     background-color: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px); 
     -webkit-backdrop-filter: blur(10px);
-    color: white;
+    color: white ;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 99;
-    margin: 0;
-    border-radius: 0;
 }
-
-.logo {
+.logo{
     font-size: 2em;
     color: #fff;
     user-select: none;
 }
-
-.navigation {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    width: auto;
-}
-
 .navigation a {
+    position: relative;
     font-size: 1.1em;
     color: #fff;
     text-decoration: none;
     font-weight: 500;
     margin-left: 40px;
 }
-
-.navigation a:hover::after {
+.navigation a::after{
     content: ' ';
     position: absolute;
     left: 0;
@@ -70,13 +59,11 @@ header {
     transform: scaleX(0);
     transition: transform .5s;
 }
-
-.navigation a:hover::after {
+.navigation a:hover::after{
     transform-origin: left;
     transform: scaleX(1);
 }
-
-.navigation .btnLogin-popup {
+.navigation .btnLogin-popup{
     width: 130px;
     height: 50px;
     background: red;
@@ -89,35 +76,28 @@ header {
     font-weight: 500;
     margin-left: 40px;
 }
-
-.navigation .btnLogin-popup:hover {
+.navigation .btnLogin-popup:hover{
     background: red;
     color: #162938;
     border: 2px solid #162938;
 }
-
-section {
+section{
     margin-left: 30px;
     transform: scaleY(400px);
-    padding: 20px;
-    text-align: center;
 }
-
-section h1 {
-    color: red;
-    font-size: 50px;
+section h1{
+    color: red;;
+    font-size: 90px;
     padding-left: 20px;
     text-align: start;
     font-family: 'Courier New', Courier, monospace;
 }
-
-section p {
+section p{
     color: white;
     font-size: 40px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-
-section .btnLogin-popup1 {
+section .btnLogin-popup1{
     width: 130px;
     height: 50px;
     background: red;
@@ -131,18 +111,16 @@ section .btnLogin-popup1 {
     margin-left: 370px;
     margin-top: 13px;
 }
-
-section .btnLogin-popup1:hover {
+section .btnLogin-popup1:hover{
     background: red;
     color: #162938;
     border: 2px solid #162938;
 }
-
-.wrapper {
+.wrapper{
     position: relative;
-    width: 90%;
-    max-width: 400px;
+    width: 400px;
     overflow: hidden;
+    transform: scale(0);
     height: 440px;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .5);
@@ -152,46 +130,33 @@ section .btnLogin-popup1:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: transform .5s ease, height .2s ease;
-    margin-top: 60px;
+    transition: transform .5s ease, height .2s ease ;
 }
-
-.wrapper.active-popup {
+.wrapper.active-popup{
     transform: scale(1);
 }
-
-.wrapper.active {
-    height: auto;
+.wrapper.active{
+    height: 520px;
     margin-top: 70px;
 }
-
-.wrapper .form-box.login,
-.wrapper .form-box.register {
-    width: 100%;
-    padding: 40px;
+.wrapper .form-box.login{
     transition: transform .18s ease;
-}
-
-.wrapper .form-box.login {
     transform: translateX(0);
 }
-
-.wrapper.active .form-box.login {
+.wrapper.active .form-box.login{
     transition: none;
     transform: translateX(-400px);
 }
-
-.wrapper .form-box.register {
+.wrapper .form-box.register{
     position: absolute;
+    transition: none;
     transform: translateX(400px);
 }
-
-.wrapper.active .form-box.register {
+.wrapper.active .form-box.register{
     transition: transform .18s ease;
     transform: translateX(0);
 }
-
-.wrapper .icon-close {
+.wrapper .icon-close{
     position: absolute;
     top: 0;
     right: 0;
@@ -207,122 +172,108 @@ section .btnLogin-popup1:hover {
     cursor: pointer;
     z-index: 1;
 }
-
-.form-box h2 {
-    font-size: 1.5em;
+.wrapper .form-box{
+    width: 100%;
+    padding: 40px;
+}
+.form-box h2{
+    font-size: 2em;
     color: white;
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
 }
-
-.input-box {
+.input-box{
     position: relative;
     width: 100%;
     height: 50px;
     border-bottom: 2px solid white;
     margin: 30px 0;
 }
-
-.input-box label {
+.input-box label{
     position: absolute;
-    top: -10px;
+    top: 50%;
     left: 10px;
+    transform: translateY(-50%);
+    font: 1em;
     color: white;
-    font-size: 14px;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
 }
-
-.input-box input {
-    width: 100%;
+.input-box input{
     height: 100%;
-    padding: 0 10px;
-    font-size: 18px;
-    color: white;
+    width: 100%;
+    color: #fff;
+    font-weight: 600;
     background: transparent;
     border: none;
+    padding: 0 35px 0 5px;
     outline: none;
-    box-sizing: border-box;
 }
-
-.input-box input:focus {
-    border-bottom: 2px solid #fff;
+.input-box input:focus~label,
+.input-box input:valid~label{
+    top: -8px;
 }
-
-.remember-forget {
+.input-box .icon{
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em; 
+    color: white;  
+    line-height: 57px;
+}
+.remember-forget{
+    font-size: .9em;
+    color: #fff;
+    font-weight: 500;
+    margin: -5px 0px 20px;
     display: flex;
     justify-content: space-between;
-    color: white;
-    font-size: 13px;
 }
-
-.remember-forget a {
-    color: #fff;
+.remember-forget label input{
+    accent-color: #fff;
+    margin-right: 5px;
+}
+.remember-forget a{
+    color: #000;
     text-decoration: none;
 }
-
-.remember-forget a:hover {
+.remember-forget a:hover{
+    color: #fff;
     text-decoration: underline;
 }
-
-@media (max-width: 768px) {
-    header {
-        padding: 20px;
-    }
-
-    .logo {
-        font-size: 1.5em;
-    }
-
-    .navigation {
-        display: none;
-        width: 100%;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background: rgba(0, 0, 0, 0.8);
-        z-index: 1;
-        flex-direction: column;
-        align-items: center;
-        padding: 10px 0;
-    }
-
-    .navigation.active {
-        display: flex;
-    }
-
-    .navigation a {
-        margin: 20px 0;
-        font-size: 1.2em;
-    }
-
-    .toggle-btn {
-        display: block;
-        cursor: pointer;
-        font-size: 2em;
-        color: #fff;
-    }
-
-    section {
-        margin-top: 80px;
-        padding: 10px;
-    }
-
-    section h1 {
-        font-size: 50px;
-    }
-
-    section p {
-        font-size: 24px;
-    }
-
-    .wrapper {
-        width: 100%;
-        max-width: 100%;
-        margin-top: 20px;
-        height: auto;
-    }
-
-    .btnLogin-popup1 {
-        width: 100%;
-        margin-top: 20px;
-    }
+.btn {
+    width: 100%;
+    height: 45px;
+    background: #000;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 500;
+}
+.btn:hover {
+    background-color: transparent;
+    color: #fff;
+    border: 3px solid black;
+}
+.login-register{
+    font-size: .9em;
+    color: #fff;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+.login-register p  {
+    color: #fff;
+}
+.login-register a{
+    color: #000;
+    margin-left: 5px;
+    text-decoration: none;
+}
+.login-register a:hover{
+    color: #fff;
+    text-decoration: underline;
 }
