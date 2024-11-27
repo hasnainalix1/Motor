@@ -61,7 +61,7 @@ function login() {
   }
 }
 
-       const toggleBtn = document.getElementById("toggle-btn");
+         const toggleBtn = document.getElementById("toggle-btn");
         const nav = document.querySelector(".navigation");
 
         toggleBtn.addEventListener("click", () => {
