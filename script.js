@@ -60,3 +60,10 @@ function login() {
       alert("Incorrect password!");
   }
 }
+
+       const toggleBtn = document.getElementById("toggle-btn");
+        const nav = document.querySelector(".navigation");
+
+        toggleBtn.addEventListener("click", () => {
+            nav.classList.toggle("active");
+        });
