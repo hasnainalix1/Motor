@@ -99,11 +99,13 @@ header {
 section {
     margin-left: 30px;
     transform: scaleY(400px);
+    padding: 20px;
+    text-align: center;
 }
 
 section h1 {
     color: red;
-    font-size: 90px;
+    font-size: 50px;
     padding-left: 20px;
     text-align: start;
     font-family: 'Courier New', Courier, monospace;
@@ -138,9 +140,9 @@ section .btnLogin-popup1:hover {
 
 .wrapper {
     position: relative;
-    width: 400px;
+    width: 90%;
+    max-width: 400px;
     overflow: hidden;
-    transform: scale(0);
     height: 440px;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .5);
@@ -151,6 +153,7 @@ section .btnLogin-popup1:hover {
     justify-content: center;
     align-items: center;
     transition: transform .5s ease, height .2s ease;
+    margin-top: 60px;
 }
 
 .wrapper.active-popup {
@@ -158,12 +161,18 @@ section .btnLogin-popup1:hover {
 }
 
 .wrapper.active {
-    height: 520px;
+    height: auto;
     margin-top: 70px;
 }
 
-.wrapper .form-box.login {
+.wrapper .form-box.login,
+.wrapper .form-box.register {
+    width: 100%;
+    padding: 40px;
     transition: transform .18s ease;
+}
+
+.wrapper .form-box.login {
     transform: translateX(0);
 }
 
@@ -174,7 +183,6 @@ section .btnLogin-popup1:hover {
 
 .wrapper .form-box.register {
     position: absolute;
-    transition: none;
     transform: translateX(400px);
 }
 
@@ -200,13 +208,8 @@ section .btnLogin-popup1:hover {
     z-index: 1;
 }
 
-.wrapper .form-box {
-    width: 100%;
-    padding: 40px;
-}
-
 .form-box h2 {
-    font-size: 2em;
+    font-size: 1.5em;
     color: white;
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
@@ -222,56 +225,37 @@ section .btnLogin-popup1:hover {
 
 .input-box label {
     position: absolute;
-    top: 50%;
+    top: -10px;
     left: 10px;
-    transform: translateY(-50%);
-    font: 1em;
     color: white;
-    font-weight: 500;
-    pointer-events: none;
-    transition: .5s;
+    font-size: 14px;
 }
 
 .input-box input {
-    height: 100%;
     width: 100%;
-    color: #fff;
-    font-weight: 600;
+    height: 100%;
+    padding: 0 10px;
+    font-size: 18px;
+    color: white;
     background: transparent;
     border: none;
-    padding: 0 35px 0 5px;
     outline: none;
+    box-sizing: border-box;
 }
 
-.input-box input:focus~label,
-.input-box input:valid~label {
-    top: -8px;
-}
-
-.input-box .icon {
-    position: absolute;
-    right: 8px;
-    font-size: 1.2em;
-    color: white;
-    line-height: 57px;
+.input-box input:focus {
+    border-bottom: 2px solid #fff;
 }
 
 .remember-forget {
-    font-size: .9em;
-    color: #fff;
-    font-weight: 500;
-    margin: -5px 0px 20px;
     display: flex;
     justify-content: space-between;
-}
-
-.remember-forget label input {
-    accent-color: #fff;
-    margin-right: 5px;
+    color: white;
+    font-size: 13px;
 }
 
 .remember-forget a {
-    color: white;
+    color: #fff;
     text-decoration: none;
 }
 
@@ -329,27 +313,12 @@ section .btnLogin-popup1:hover {
     section p {
         font-size: 24px;
     }
-}
 
-@media (max-width: 480px) {
-    header {
-        padding: 15px;
-    }
-
-    .logo {
-        font-size: 1.3em;
-    }
-
-    .navigation a {
-        font-size: 1em;
-    }
-
-    section h1 {
-        font-size: 40px;
-    }
-
-    section p {
-        font-size: 18px;
+    .wrapper {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 20px;
+        height: auto;
     }
 
     .btnLogin-popup1 {
