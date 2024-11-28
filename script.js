@@ -65,12 +65,21 @@ iconClose.addEventListener('click', () => {
       const users = JSON.parse(localStorage.getItem("users")) || [];
       const user = users.find(user => user.username === username);
 
-      if (!user) {
-        alert("User not found!");
-      } else if (user.password !== password) {
+ if (!email || !password) {
+    alert("All fields are required!");
+    return;
+  }
+
+  // Check if user exists and password matches
+  const user = users.find((user) => user.email === email && user.password === password);
+  if (!user) {
+    alert("Invalid email or password!");
+    return;
+  }
+     else if (user.password !== password) {
         alert("Incorrect password!");
       } else {
         alert("Login successful!");
         window.location.href = "welcome.html"; 
       }
-    });
+   });
