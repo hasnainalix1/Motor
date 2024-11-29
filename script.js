@@ -14,11 +14,11 @@ loginLink.addEventListener('click', () => {
 });
 
 btnpopup.addEventListener('click', () => {
-  wrapper.classList.add('active-wrapper');
+  wrapper.classList.add('active-popup');
 });
 
 iconClose.addEventListener('click', () => {
-  wrapper.classList.remove('active-wrapper');
+  wrapper.classList.remove('active-popup');
 });
 
 // signup 
